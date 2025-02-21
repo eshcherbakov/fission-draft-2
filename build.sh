@@ -1,3 +1,7 @@
-#!/bin/sh
-pip3 install -r ${SRC_PKG}/fission-draft-2/requirements.txt -t ${SRC_PKG}/fission-draft-2 && mkdir ${DEPLOY_PKG} && cp -r ${SRC_PKG}/fission-draft-2/* ${DEPLOY_PKG} && pwd && ls -all
+#!/bin/bash
 
+ROOT=$(basename "$SRC_PKG"/*/)
+
+pip3 install -r "$SRC_PKG/$ROOT/requirements.txt" -t "$SRC_PKG/$ROOT"
+mkdir -p "$DEPLOY_PKG"
+cp -r "$SRC_PKG/$ROOT"/* "$DEPLOY_PKG/"
